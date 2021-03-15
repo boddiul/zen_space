@@ -426,7 +426,8 @@ function loop() {
 
 
 
-      rotationPosition+=rotSpeed/Math.PI*180;
+      rotationPosition+=rotSpeed/Math.PI*180*60*delta;
+      console.log(delta)
     }
 
 
