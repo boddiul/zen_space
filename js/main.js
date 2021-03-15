@@ -328,14 +328,19 @@ function zoomToConstellation(id) {
   zoomed = true;
 
 
-  if (rotationPosition>=360)
+  console.log(rotationPosition)
+
+
+  while (rotationPosition>=360)
     rotationPosition-=360;
 
-  if (rotationPosition<0)
+  while (rotationPosition<0)
     rotationPosition+=360;
 
 
   targetRotation = constellationPosition[id][0];
+
+  console.log(targetRotation)
 
   // w/h=0.46 ->0
   // w/h=1.77 ->1
@@ -356,6 +361,8 @@ function zoomToConstellation(id) {
   if (targetRotation>=0 && targetRotation<90 && rotationPosition>=270 && rotationPosition<360)
     targetRotation+=360;
 
+
+  console.log(rotationPosition,targetRotation)
 
   rotSpeed = 0;
 
@@ -427,7 +434,7 @@ function loop() {
 
 
       rotationPosition+=rotSpeed/Math.PI*180*60*delta;
-      console.log(delta)
+      //console.log(delta)
     }
 
 
@@ -479,10 +486,10 @@ function onDocumentClick(event) {
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
 
-  console.log('MM '+mouse.x+' '+mouseStartX)
+ // console.log('MM '+mouse.x+' '+mouseStartX)
   if (Math.abs(mouse.x-mouseStartX)>0.1)
     return;
-  console.log('click');
+//  console.log('click');
 
   raycaster.setFromCamera(mouse, camera);
 
