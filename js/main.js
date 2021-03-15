@@ -533,7 +533,7 @@ function onDocumentTouchStart(event) {
 
 
 rotSpeed = 0;
-maxRotSpeed = 0.2;
+maxRotSpeed = 0.1;
 
 
 
@@ -544,7 +544,7 @@ function onDocumentTouchMove(event) {
 
   event.preventDefault();
 
-  rotSpeed = -(event.touches[0].clientX - mouseShiftX) * 0.004;
+  rotSpeed = -(event.touches[0].clientX - mouseShiftX) * 0.002;
 
 
   if (rotSpeed>maxRotSpeed)
@@ -599,12 +599,12 @@ function onDocumentMouseMove(event) {
       rotSpeed = -(mouse.x - mouseShiftX) ;
 
 
-      if (rotSpeed>maxRotSpeed*0.5)
-        rotSpeed = maxRotSpeed*0.5;
+      if (rotSpeed>maxRotSpeed)
+        rotSpeed = maxRotSpeed;
 
 
-      if (rotSpeed<-maxRotSpeed*0.5)
-        rotSpeed = -maxRotSpeed*0.5;
+      if (rotSpeed<-maxRotSpeed)
+        rotSpeed = -maxRotSpeed;
 
       mouseShiftX = mouse.x;
 
